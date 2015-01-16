@@ -1,16 +1,13 @@
 package interactions;
 
-import pages.PageObject;
-import pages.SimplePageObject;
-import pages.SimpleStaticPageObject;
-import pages.StaticPageObject;
-import helpers.Waiter;
+import pages.nonStaticPages.PageObject;
+import pages.nonStaticPages.SimplePageObject;
+import pages.staticPages.SimpleStaticPageObject;
+import pages.staticPages.StaticPageObject;
 import junit.framework.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,9 +15,6 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Admin on 05.01.2015.
- */
 public class InteractionsTest {
     private static final String BASE_SITE = "http://the-internet.herokuapp.com";
     private WebDriver driver;
@@ -170,34 +164,5 @@ public class InteractionsTest {
 
 
 
-    @Test
-    public void loginSimpleStaticPOTest() {
-        driver.findElement(By.linkText("Form Authentication")).click();
-        driver.findElement(SimpleStaticPageObject.USERNAME).sendKeys("tomsmith");
-        driver.findElement(SimpleStaticPageObject.PASSWORD).sendKeys("SuperSecretPassword!");
-        driver.findElement(SimpleStaticPageObject.LOGIN_BUTTON).click();
-    }
-
-    @Test
-    public void loginStaticPOTest() {
-        driver.findElement(By.linkText("Form Authentication")).click();
-        StaticPageObject.login(driver, "tomsmith", "SuperSecretPassword!");
-    }
-
-    @Test
-    public void loginSimplePOTest() {
-        driver.findElement(By.linkText("Form Authentication")).click();
-        SimplePageObject simplePageObject = new SimplePageObject(driver);
-        simplePageObject.getUsername().sendKeys("tomsmith");
-        simplePageObject.getPassword().sendKeys("SuperSecretPassword!");
-        simplePageObject.getLoginButton().click();
-    }
-    @Test
-    public void loginPOTest() {
-        driver.findElement(By.linkText("Form Authentication")).click();
-        PageObject pageObject = new PageObject(driver);
-        pageObject.login("tomsmith", "SuperSecretPassword!");
-
-    }
 
 }

@@ -1,4 +1,4 @@
-package waiterstest;
+package waiter;
 
 
 import helpers.Waiter;
