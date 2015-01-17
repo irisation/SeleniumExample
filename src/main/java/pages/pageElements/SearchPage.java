@@ -1,8 +1,7 @@
-package pages;
+package pages.pageElements;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pageElements.SearchArrow;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 
 public class SearchPage {

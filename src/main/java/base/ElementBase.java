@@ -19,19 +19,19 @@ public class ElementBase {
         return locator;
     }
 
-    public SearchContext getSearchContext() {
-        return host;
-    }
-
-    public WebElement getWrappedElement() {
-        return element;
-    }
-
     public String getText() {
         return element.getText();
     }
 
     public void click() {
         element.click();
+    }
+
+    public SearchContext getSearchContext() {
+        return host;
+    }
+
+    public WebElement getWrappedElement() {
+        return element;
     }
 }

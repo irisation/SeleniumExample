@@ -1,4 +1,4 @@
-package pages;
+package pages.pageElements;
 
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Button;
@@ -10,10 +10,10 @@ public class AuthorizationForm extends HtmlElement {
     @FindBy(css = ".auth__username input")
     private TextInput loginField;
 
-    @FindBy(css = "auth__password input")
+    @FindBy(css = ".auth__password input")
     private TextInput passwordField;
 
-    @FindBy(css = "button.auth__login-button")
+    @FindBy(css = ".button.auth__login-button")
     private Button submitButton;
 
     public void login(String login, String password) {

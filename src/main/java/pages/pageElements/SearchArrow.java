@@ -1,4 +1,4 @@
-package pageElements;
+package pages.pageElements;
 
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
@@ -7,7 +7,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 import ru.yandex.qatools.htmlelements.element.TextInput;
 
 @Name("Search form")
-@FindBy(css = "div.main")
+@FindBy(css = "div.arrow")
 public class SearchArrow extends HtmlElement {
     @Name("Search request input")
     @FindBy(id = "text")
@@ -22,3 +22,5 @@ public class SearchArrow extends HtmlElement {
         searchButton.click();
     }
 }
+
+
