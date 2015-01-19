@@ -23,11 +23,50 @@ public class Locators {
         }
     }
 
-//    public By get(String elementName){
-//        String[] values = locators.getProperty(elementName).split("=", 1);
-//        switch (values[0]) {
-//
-//        }
-//        return
-//    }
+    public static String title(String pageName) {
+        return locators.getProperty(pageName);
+    }
+
+    public static By get(String locatorName) {
+        String propertyValue = locators.getProperty(locatorName);
+        return getLocator(propertyValue);
+    }
+
+    public static By get(String locatorName, String parameter) {
+        String propertyValue = locators.getProperty(locatorName);
+        return getLocator(String.format(propertyValue, parameter));
+    }
+
+    public static By getLocator(String elementName) {
+        String[] values = locators.getProperty(elementName).split("=", 1);
+        LocatorType locatorType = LocatorType.valueOf(values[0]);
+        switch (locatorType) {
+            case id: {
+                return By.id(values[1]);
+            }
+            case name: {
+                return By.name(values[1]);
+            }
+            case css: {
+                return By.cssSelector(values[1]);
+            }
+            case xpath: {
+                return By.xpath(values[1]);
+            }
+            case tag: {
+                return By.tagName(values[1]);
+            }
+            case text: {
+                return By.linkText(values[1]);
+            }
+            case partText: {
+                return By.partialLinkText(values[1]);
+            }
+            default:
+                throw new IllegalArgumentException("No such locator type: " + values[0]);
+        }
+
+    }
+
+
 }
